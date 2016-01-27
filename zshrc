@@ -1,7 +1,4 @@
 
-# Load default dotfiles
-source ~/.bash_profile
-
 # Load antigen
 source ~/.code/antigen.zsh
 # install some antigen bundles
@@ -44,10 +41,12 @@ antigen bundles <<EOBUNDLES
   npm
   nvm
 EOBUNDLES
+PURE_CMD_MAX_EXEC_TIME=3
+antigen theme robbyrussell
 # tell Antigen that we're done.
 antigen apply
 
-for file in ~/.{zshrc.local,aliases,functions,path,extra,exports,dockerfunc}; do
+for file in ~/.{bash_profile,zshrc.local,aliases,functions,path,extra,exports,dockerfunc}; do
 	[[ -r "$file" ]] && [[ -f "$file" ]] && source "$file"
 done
 unset file
