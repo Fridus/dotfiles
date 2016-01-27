@@ -15,7 +15,14 @@ Install the dotfiles:
     cd $HOME/dotfiles && git submodule update --init --recursive
     env RCRC=$HOME/dotfiles/rcrc rcup
 
-# Inspirations
+## iTerm 2
+
+```
+Preference > General > Load Preference from folder or URL:
+~/dotfiles/iterm2
+```
+
+## Inspirations
 
 - https://github.com/LoicMahieu/dotfiles
 - https://github.com/jfrazelle/dotfiles
