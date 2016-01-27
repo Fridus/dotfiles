@@ -1,0 +1,30 @@
+
+# keepassx V1
+keepassx() {
+  _ORGFILE="$HOME/.keepassx_config/$1"
+  _FILE="/tmp/.keepass_config_$1"
+  cp ${_ORGFILE} ${_FILE}
+  open -n /Applications/KeePassX.app --args -cfg ${_FILE}
+}
+
+function mcd() {
+  mkdir -p "$1" && cd "$1";
+}
+compdef mcd=cd
+
+# Find text in any file
+ft() {
+  find . -name "$2" -exec grep -il "$1" {} \;
+}
+
+# Get and tar
+function curltar() {
+  curl -L# $1 | tar -zx --strip 1 -C $2
+}
+
+# Git
+function gitclone() {
+	git clone --recursive $1 $2
+	cd $2
+}
+compdef gitclone=git

@@ -1,0 +1,6 @@
+
+# Load custom executable functions
+for function in ~/.zsh/functions/*; do
+  source $function
+done
+unset function

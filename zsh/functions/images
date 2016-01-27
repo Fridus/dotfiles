@@ -1,0 +1,3 @@
+
+# Get image dimensions
+function dim(){ sips $1 -g pixelWidth -g pixelHeight }

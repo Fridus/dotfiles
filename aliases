@@ -1,0 +1,32 @@
+
+# Editor
+
+alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
+alias e='subl'
+alias ea='subl -a .'
+
+# Nav
+
+alias ..='cd ..'
+alias ...='cd ../../'
+alias ....='cd ../../../'
+alias .....='cd ../../../../'
+alias ......='cd ../../../../../'
+
+alias l.='ls -d .* --color=auto'
+alias ls.='l.'
+alias lll='ls -1'
+
+# Network
+
+alias pubip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias netlisteners='lsof -i -P | grep LISTEN'
+alias netstatlisteners='netstat -atn | grep -i "listen"'
+alias flushdns="dscacheutil -flushcache"
+
+# Other
+
+alias sulast='sudo $(history -p !-1)'
+alias sourcetree='open -a SourceTree'
+alias stree='open -a SourceTree'
+alias gitlog="git log --all --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
