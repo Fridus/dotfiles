@@ -46,7 +46,7 @@ antigen theme robbyrussell
 # tell Antigen that we're done.
 antigen apply
 
-for file in ~/.{bash_profile,zshrc.local,aliases,functions,path,extra,exports,dockerfunc}; do
+for file in ~/.{bash_profile,zshrc.local,aliases,functions,path,extra,exports,dockerfunc,dockerenv}; do
 	[[ -r "$file" ]] && [[ -f "$file" ]] && source "$file"
 done
 unset file
