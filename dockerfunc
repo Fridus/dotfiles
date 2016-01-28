@@ -16,5 +16,10 @@ del_stopped(){
 dmstart(){
 	VMNAME=${1:-'default'}
 	docker-machine start $VMNAME
-	eval $(docker-machine env default)
+	sleep 4s 
+	eval $(docker-machine env $VMNAME)
+}
+dmstop(){
+	VMNAME=${1:-'default'}
+	docker-machine stop $VMNAME
 }
