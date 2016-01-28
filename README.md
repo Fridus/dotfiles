@@ -15,6 +15,7 @@ Install the dotfiles:
     cd $HOME/dotfiles && git submodule update --init --recursive
     env RCRC=$HOME/dotfiles/rcrc rcup
 
+
 ## iTerm 2 🖥
 https://www.iterm2.com
 
@@ -22,6 +23,37 @@ https://www.iterm2.com
 Preference > General > Load Preference from folder or URL:
 ~/dotfiles/iterm2
 ```
+
+
+## External dependencies
+
+### brew/apt
+
+```
+cdrtools
+docker-compose
+docker-machine
+docker-machine-driver-xhyve
+git
+git-extras
+lnav
+tree
+watch
+wget
+```
+
+### npm
+
+```
+airpaste
+airtar
+bower
+bower-check-updates
+node-inspector
+npm-check-updates
+serve
+```
+
 
 ## Inspirations
 
