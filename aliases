@@ -27,6 +27,5 @@ alias flushdns="dscacheutil -flushcache"
 # Other
 
 alias sulast='sudo $(history -p !-1)'
-alias sourcetree='open -a SourceTree'
-alias stree='open -a SourceTree'
+alias stree='/Applications/SourceTree.app/Contents/Resources/stree'
 alias gitlog="git log --all --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
