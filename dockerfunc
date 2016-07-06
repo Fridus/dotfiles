@@ -2,25 +2,38 @@
 
 # Helper Functions
 dcleanup(){
-	docker rm -v $(docker ps --filter status=exited -q 2>/dev/null) 2>/dev/null
-	docker rmi $(docker images --filter dangling=true -q 2>/dev/null) 2>/dev/null
+  docker rm -v $(docker ps --filter status=exited -q 2>/dev/null) 2>/dev/null
+  docker rmi $(docker images --filter dangling=true -q 2>/dev/null) 2>/dev/null
 }
 del_stopped(){
-	local name=$1
-	local state=$(docker inspect --format "{{.State.Running}}" $name 2>/dev/null)
+  local name=$1
+  local state=$(docker inspect --format "{{.State.Running}}" $name 2>/dev/null)
 
-	if [[ "$state" == "false" ]]; then
-		docker rm $name
-	fi
+  if [[ "$state" == "false" ]]; then
+    docker rm $name
+  fi
 }
+
+# Docker machine
 dmstart(){
-	VMNAME=${1:-'default'}
-	docker-machine start $VMNAME
-	sleep 4s
-	DOCKERENV=`docker-machine env $VMNAME`
-	echo $DOCKERENV > ~/.dockerenv && source ~/.dockerenv
+  VMNAME=${1:-'default'}
+  docker-machine start $VMNAME
+  sleep 4s
+  DOCKERENV=`docker-machine env $VMNAME`
+  echo $DOCKERENV > ~/.dockerenv && source ~/.dockerenv
 }
 dmstop(){
-	VMNAME=${1:-'default'}
-	docker-machine stop $VMNAME
+  VMNAME=${1:-'default'}
+  docker-machine stop $VMNAME
+}
+dmclear() {
+  unset $(env | grep DOCKER | awk -F'=' '{print $1}' | xargs)
+}
+
+# Dev
+ddev() {
+  docker start mailcatcher mysql redis
+}
+dcf() {
+  ddev && sleep 2 && docker start cf10
 }
