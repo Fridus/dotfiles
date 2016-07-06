@@ -31,6 +31,30 @@ dmclear() {
 }
 
 # Dev
+dcreate() {
+  case "$1" in
+    'mail')
+      docker run -d -p 1080:80 -p 1025:25 --name mailcatcher tophfr/mailcatcher
+      ;;
+    'redis')
+      docker run --name redis -d redis
+      ;;
+    'mysql')
+      MYSQLCONF=`cd ~/dockers/mysql && pwd`
+      docker run --name mysql-data -v /var/lib/mysql busybox
+      docker run --name mysql \
+        -v $MYSQLCONF/conf:/etc/mysql/conf.d \
+        --volumes-from mysql-data \
+        -e MYSQL_ALLOW_EMPTY_PASSWORD=yes \
+        -d \
+        -p 3306:3306 \
+        mysql:5.6
+      ;;
+    cf|cf10|coldfusion)
+      sh ~/dockers/cf10/scripts/create
+      ;;
+  esac
+}
 ddev() {
   docker start mailcatcher mysql redis
 }
