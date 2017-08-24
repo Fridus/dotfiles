@@ -33,11 +33,11 @@ dmclear() {
 # Dev
 dcreate() {
   case "$1" in
-    'mail')
+    mail|mailcatcher)
       docker run -d -p 1080:80 -p 1025:25 --name mailcatcher tophfr/mailcatcher
       ;;
     'redis')
-      docker run --name redis -d redis
+      docker run --name redis -d -p 6379:6379 redis
       ;;
     'mysql')
       MYSQLCONF=`cd ~/dockers/mysql && pwd`
@@ -52,6 +52,9 @@ dcreate() {
       ;;
     cf|cf10|coldfusion)
       sh ~/dockers/cf10/scripts/create
+      ;;
+    *)
+      echo 'args missing. Use mail|redis|mysql'
       ;;
   esac
 }
