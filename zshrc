@@ -1,6 +1,6 @@
 
 # Load antigen
-source ~/.code/antigen.zsh
+source /usr/local/share/antigen/antigen.zsh
 # install some antigen bundles
 antigen use oh-my-zsh
 antigen bundles <<EOBUNDLES

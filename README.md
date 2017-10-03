@@ -9,6 +9,10 @@ Install [rcm](https://github.com/thoughtbot/rcm):
     brew tap thoughtbot/formulae
     brew install rcm
 
+Install `antigen`
+
+    brew install antigen
+
 Install the dotfiles:
 
     git clone https://github.com/Fridus/dotfiles.git $HOME/dotfiles
