@@ -1,9 +1,7 @@
 
 # Editor
 
-alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
-alias e='subl'
-alias ea='subl -a .'
+alias e='code'
 
 # Nav
 
@@ -24,8 +22,13 @@ alias netlisteners='lsof -i -P | grep LISTEN'
 alias netstatlisteners='netstat -atn | grep -i "listen"'
 alias flushdns="dscacheutil -flushcache"
 
+# Git
+
+alias gbm="git branch --merged | cat"
+
 # Other
 
 alias sulast='sudo $(history -p !-1)'
 alias stree='/Applications/SourceTree.app/Contents/Resources/stree'
 alias gitlog="git log --all --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
+alias date="gdate"
